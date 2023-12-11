@@ -1,0 +1,10 @@
+main {
+    flex: 1 0 auto;
+    overflow: hidden;
+    min-height: 100vh;
+    background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
+}
+
+nav {
+    background-color: #ace0f9;
+}
