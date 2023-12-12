@@ -1,0 +1,76 @@
+<script>
+    const gameBoard = document.getElementById('gameBoard');
+    const cells = document.querySelectorAll('.cell');
+    const message = document.getElementById('message');
+    const restartButton = document.getElementById('restartButton');
+    
+    let currentPlayer = 'X';
+    let isGameActive = true;
+    let board = ['', '', '', '', '', '', '', '', ''];
+    
+    // Function to handle cell click
+    function handleCellClick(event) {
+        const cell = event.target;
+        const cellIndex = parseInt(cell.getAttribute('data-cell'));
+    
+        if (board[cellIndex] === '' && isGameActive) {
+            board[cellIndex] = currentPlayer;
+            cell.textContent = currentPlayer;
+            cell.classList.add(currentPlayer);
+    
+            if (checkWin(currentPlayer)) {
+                message.textContent = `${currentPlayer} wins!`;
+                isGameActive = false;
+            } else if (board.includes('') === false) {
+                message.textContent = "It's a draw!";
+                isGameActive = false;
+            } else {
+                currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+                message.textContent = `Player ${currentPlayer}'s turn`;
+            }
+        }
+    }
+    
+    // Function to check if a player has won
+    function checkWin(player) {
+        const winPatterns = [
+            [0, 1, 2],
+            [3, 4, 5],
+            [6, 7, 8],
+            [0, 3, 6],
+            [1, 4, 7],
+            [2, 5, 8],
+            [0, 4, 8],
+            [2, 4, 6]
+        ];
+    
+        return winPatterns.some(pattern => {
+            return pattern.every(index => board[index] === player);
+        });
+    }
+    
+    // Function to restart the game
+    function restartGame() {
+        currentPlayer = 'X';
+        isGameActive = true;
+        board = ['', '', '', '', '', '', '', '', ''];
+    
+        cells.forEach(cell => {
+            cell.textContent = '';
+            cell.classList.remove('X', 'O');
+        });
+    
+        message.textContent = `Player ${currentPlayer}'s turn`;
+    }
+    
+    // Event listeners
+    cells.forEach(cell => {
+        cell.addEventListener('click', handleCellClick);
+    });
+    
+    restartButton.addEventListener('click', restartGame);
+    
+    // Initial message
+    message.textContent = `Player ${currentPlayer}'s turn`;
+    
+    </script>

@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400;0,500;0,600;1,400&display=swap');
+
+body {
+  font-family: 'Afacad', sans-serif;
+  color: #2980F2;
+}
+
 main {
     flex: 1 0 auto;
     overflow: hidden;
@@ -50,4 +57,48 @@ nav {
     transform: translateY(0);
   }
 }
+
+.cell {
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  font-size: 24px;
+  border: 2px solid #2980F2;
+  margin: 4px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.X {
+  color: #e95d1c; 
+  font-size: 60px;
+}
+
+.O {
+  color: #3399FF; 
+  font-size: 60px;
+}
+
+#message {
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+#restartButton {
+  font-size: 20px;
+  padding: 10px 20px;
+  margin-top: 20px;
+  background: linear-gradient(to bottom, #296CF2, #2980F2); 
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: transform(0.3s ease);
+}
+
+#restartButton:hover {
+  color: #2980F2;
+  background: #f3f9fd;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
 
