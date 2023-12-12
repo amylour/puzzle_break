@@ -43,7 +43,7 @@
               name: "{{ request.user.name|escapejs }}", // Full name
               user_id: "{{ request.user.id|escapejs }}", // User UUID
               email: "{{ request.user.email|escapejs }}", // Email address
-              created_at: "{{ request.user.date_joined|date:"U" }}", // Signup date as a Unix timestamp
+              created_at: "{{ request.user.date_joined|date:'U' }}", // Signup date as a Unix timestamp
             };
           </script>
           
